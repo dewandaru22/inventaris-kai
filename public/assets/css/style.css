@@ -4082,6 +4082,7 @@ input[type="button"].btn-block {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
+  align: center;
 }
 
 .nav-link:hover, .nav-link:focus {
@@ -4138,7 +4139,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #20a8d8;
+  background-color: #ffc107;
 }
 
 .nav-fill .nav-item {
@@ -12677,7 +12678,7 @@ canvas {
   flex-direction: column;
   padding: 0;
   color: #fff;
-  background: #2f353a;
+  background: #195d9e;
 }
 
 .sidebar .sidebar-close {
@@ -12816,11 +12817,11 @@ canvas {
 
 .sidebar .nav-link.active {
   color: #fff;
-  background: #3a4248;
+  background: #ffc107;
 }
 
 .sidebar .nav-link.active .nav-icon {
-  color: #20a8d8;
+  color: #ffc107;
 }
 
 .sidebar .nav-link:hover {
@@ -12859,7 +12860,7 @@ canvas {
 }
 
 .sidebar .nav-link.nav-link-primary {
-  background: #20a8d8;
+  background: #ffc107;
 }
 
 .sidebar .nav-link.nav-link-primary .nav-icon {
@@ -13194,7 +13195,7 @@ canvas {
     overflow: visible;
   }
   .sidebar-minimized .sidebar .nav-item:hover > .nav-link {
-    background: #20a8d8;
+    background: #e0b310;
   }
   .sidebar-minimized .sidebar .nav-item:hover > .nav-link .nav-icon {
     color: #fff;
@@ -13232,7 +13233,7 @@ canvas {
   }
   .sidebar-minimized .sidebar .nav-link:hover {
     width: 250px;
-    background: #20a8d8;
+    background: #e0b310;
   }
   .sidebar-minimized .sidebar .nav-link:hover .badge {
     display: inline;

@@ -15,11 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('inventaris', 'kai');
-Route::get('/admin', function () {
-    return view('admin/adminlte');
+Route::resource('tabel', 'kai');
+Route::get('/tambah', function () {
+    return view('tambah');
 });
 
-Route::get('/tahun', function () {
-    return view('tahun/tahun');
-});
+

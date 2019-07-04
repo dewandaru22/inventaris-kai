@@ -14,8 +14,8 @@ class kai extends Controller
      */
     public function index()
     {
-        $data = \App\ModelInventaris::all();
-        return view('inventaris', compact('data'));
+        $data = ModelInventaris::all();
+        return view('tabel', compact('data'));
     }
 
     /**
@@ -67,7 +67,8 @@ class kai extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = ModelInventaris::where('id',$id)->get();
+       	return view('edit', compact('data'));
     }
 
     /**
@@ -79,7 +80,16 @@ class kai extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = ModelInventaris::where('id',$id)->first();
+        $data->no_inventaris = $request->no_inventaris;
+		$data->nama_barang = $request->nama_barang;
+		$data->jumlah = $request->jumlah;
+        $data->satuan = $request->satuan;
+        $data->harga_barang_item = $request->harga_barang_item;
+        $data->bagian = $request->bagian;
+        $data->kedudukan = $request->kedudukan;
+        $data->save();
+        return redirect()->route('tabel.index')->with('alert-success','Berhasil Mengubah Data!');
     }
 
     /**
@@ -90,6 +100,8 @@ class kai extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = ModelInventaris::where('id',$id)->first();
+        $data->delete();
+        return redirect()->back()->with('alert-success','Berhasil Menghapus Data!');
     }
 }

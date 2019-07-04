@@ -63,14 +63,32 @@
           <ul class="nav">
           <li class="nav-title">Tambah Data</li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="/tambah">
                 <i class="nav-icon icon-speedometer"></i> Tambah        
               </a>
             </li>
             <li class="nav-title">Data</li>
             <li class="nav-item">
-              <a class="nav-link" href="/tahun">
+              <a class="nav-link" href="colors.html">
                 <i class="nav-icon icon-drop"></i> Tahun</a>
+                <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                  <a class="nav-link" href="base/breadcrumb.html">
+                    <i class="nav-icon icon-puzzle"></i> 2016</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="base/breadcrumb.html">
+                    <i class="nav-icon icon-puzzle"></i> 2017</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="base/breadcrumb.html">
+                    <i class="nav-icon icon-puzzle"></i> 2018</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="base/breadcrumb.html">
+                    <i class="nav-icon icon-puzzle"></i> 2019</a>
+                </li>
+                </ul>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="typography.html">
@@ -97,72 +115,58 @@
               <div class="card-body">
               <div class="container">
             <div class="card mt-5">
-            @if(Session::has('alert-success'))
-                <div class="alert alert-warning">
-                    <strong>{{ \Illuminate\Support\Facades\Session::get('alert-success') }}</strong>
-                </div>
-            @endif
                 <div class="card-header text-center">
                     Data Inventaris
                 </div>
                 <div class="card-body">
-                    <br/>
-                    <br/>
-                    <form action="{{ route('inventaris.store') }}" method="post" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    <div class="form-group row">
-                        <label for="no_inventaris" class="col-sm-3 col-form-label">No Inventaris</label>
-                        <div class="col-sm-9">
-                            <input name="no_inventaris" type="text" class="form-control" id="no_inventaris">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="nama_barang" class="col-sm-3 col-form-label">Nama Barang</label>
-                        <div class="col-sm-9">
-                            <input name="nama_barang" type="text" class="form-control" id="nama_barang">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="jumlah" class="col-sm-3 col-form-label">Jumlah</label>
-                        <div class="col-sm-9">
-                            <input name="jumlah" type="text" class="form-control" id="jumlah">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="satuan" class="col-sm-3 col-form-label">Satuan</label>
-                        <div class="col-sm-9">
-                            <input name="satuan" type="text" class="form-control" id="satuan">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="harga_barang_item" class="col-sm-3 col-form-label">Harga Barang/Item</label>
-                        <div class="col-sm-9">
-                            <input name="harga_barang_item" type="text" class="form-control" id="harga_barang_item">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="bagian" class="col-sm-3 col-form-label">Bagian</label>
-                        <div class="col-sm-9">
-                            <input name="bagian" type="text" class="form-control" id="bagian">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="kedudukan" class="col-sm-3 col-form-label">Kedudukan</label>
-                        <div class="col-sm-9">
-                            <input name="kedudukan" type="text" class="form-control" id="kedudukan">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="offset-sm-3 col-sm-9">
-                            <button type="submit" class="btn btn-success">Simpan</button>
-                            <button type="reset" class="btn btn-md btn-danger">Batal</button>
-                        </div>
-                    </div>
-                </form>
+                <a class="btn btn-primary" style="color:white;">Tahun</a>
+                <select size="1">
+                  <option>2019
+                  <option>2018
+                  <option>2017
+                  <option>2016
+                </select>
+                <br/>
+                <br/>
+                    <table class="table table-hover">
+                        <tbody>
+                            <tr>
+                                <td>No Inventaris</td>
+                                <td><input type="text" name="fname" style="width:100%;"/></td>
+                            </tr>
+                            <tr>
+                                <td>Nama Barang</td>
+                                <td><input type="text" name="fname" style="width:100%;"/></td>
+                            </tr>
+                            <tr>
+                                <td>Jumlah</td>
+                                <td><input type="text" name="fname" style="width:100%;"/></td>
+                            </tr>
+                            <tr>
+                                <td>Satuan</td>
+                                <td><input type="text" name="fname" style="width:100%;"/></td>
+                            </tr>
+                            <tr>
+                                <td>Harga beli/item</td>
+                                <td><input type="text" name="fname" style="width:100%;"/></td>
+                            </tr>
+                            <tr>
+                                <td>Bagian</td>
+                                <td><input type="text" name="fname" style="width:100%;"/></td>
+                            </tr>
+                            <tr>
+                                <td>Kedudukan</td>
+                                <td><input type="text" name="fname" style="width:100%;"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <br>
+            <a class="btn btn-danger" style="color:white; float:right;">Batal</a>
+            <a class="btn btn-success" style="color:white; float:right;  margin-right:10px;">Simpan</a>
         </div>
+              </div>
               
                 </div>
               </div>
@@ -171,29 +175,7 @@
           </div>
         </div>
       </main>
-      <aside class="aside-menu">
-        <ul class="nav nav-tabs" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#timeline" role="tab">
-              <i class="icon-list"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#messages" role="tab">
-              <i class="icon-speech"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#settings" role="tab">
-              <i class="icon-settings"></i>
-            </a>
-          </li>
-        </ul>
-    </aside>
-          
-    <footer class="app-footer">
-     
-    </footer>
+      
     <!-- CoreUI and necessary plugins-->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
