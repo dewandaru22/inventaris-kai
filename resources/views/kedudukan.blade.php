@@ -20,9 +20,9 @@
     <link href="{{('/assets/css/style.css')}}" rel="stylesheet">
     <link href="{{('/assets/css/glyphicons.css')}}" rel="stylesheet">
     <link href="{{('/assets/vendors/pace-progress/css/pace.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
     <script>
       window.dataLayer = window.dataLayer || [];
 
@@ -42,8 +42,8 @@
       <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="/tabel">
-        <img class="navbar-brand-full" src="{{('/assets/img/brand/logoresmi.png')}}" width="150" height="40" alt="KAI Logo" href="/tabel">
+      <a class="navbar-brand" href="/kedudukan">
+        <img class="navbar-brand-full" src="{{('/assets/img/brand/logoresmi.png')}}" width="150" height="40" alt="KAI Logo" href="/kedudukan">
       </a>
       <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-5">
@@ -71,11 +71,11 @@
                 <i class="nav-icon icon-drop"></i> Tahun</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/bagian">
+              <a class="nav-link" href="typography.html">
                 <i class="nav-icon icon-pencil"></i> Bagian</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/kedudukan">
+              <a class="nav-link" href="typography.html">
                 <i class="nav-icon icon-pencil"></i> Kedudukan</a>
             </li>
             
@@ -97,7 +97,18 @@
                     Data Inventaris
                 </div>
                 <div class="card-body">
-                
+                <form action="/kedudukan" method="POST" role="search">
+                        {{ csrf_field() }}
+                        <div class="input-group">
+                            <input type="text" class="form-control col-sm-3" name="kedudukan"
+                                placeholder="Cari Kedudukan"> <span class="input-group-btn">
+                                <span class="input-group-btn">
+                                <button style="margin-left:10px;" type="submit" class="btn btn-success">Cari</button>
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+                <br>
             <table class="table table-bordered small">
                 <thead>
                     <tr>
@@ -125,10 +136,10 @@
                         <td>{{ $d->bagian }}</td>
                         <td>{{ $d->kedudukan }}</td>
                         <td>
-                            <form action="{{ route('tabel.destroy', $d->id) }}" method="post">
+                            <form action="{{ route('kedudukan.destroy', $d->id) }}" method="post">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                                <a href="{{ route('tabel.edit',$d->id) }}" class=" btn btn-sm btn-primary">
+                                <a href="{{ route('kedudukan.edit',$d->id) }}" class=" btn btn-sm btn-primary">
                                 <span class="fa fa-pencil"></span>
                                 </a>
                                 <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">

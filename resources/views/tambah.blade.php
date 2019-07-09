@@ -11,7 +11,7 @@
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <title>Sistem Pendataan Inventaris</title>
     <!-- Icons-->
-    <link rel="icon" type="image/png" href="{{('/assets/img/kai_logo.svg.png')}}" sizes="any" />
+    <link rel="icon" type="image/png" href="{{('/assets/img/logokai.png')}}" sizes="any" />
     <link href="{{('/assets/node_modules/@coreui/icons/css/coreui-icons.min.css')}}" rel="stylesheet">
     <link href="{{('/assets/node_modules/flag-icon-css/css/flag-icon.min.css')}}" rel="stylesheet">
     <link href="{{('/assets/node_modules/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
@@ -40,8 +40,8 @@
       <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="{{('/assets/img/brand/kai_logo.svg.png')}}" width="100" height="50" alt="KAI Logo">
+      <a class="navbar-brand" href="/tabel">
+        <img class="navbar-brand-full" src="{{('/assets/img/brand/logoresmi.png')}}" width="150" height="40" alt="KAI Logo" href="/tabel">
         
       </a>
       <ul class="nav navbar-nav d-md-down-none">
@@ -70,11 +70,11 @@
                 <i class="nav-icon icon-drop"></i> Tahun</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="typography.html">
+              <a class="nav-link" href="/bagian">
                 <i class="nav-icon icon-pencil"></i> Bagian</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="typography.html">
+              <a class="nav-link" href="/kedudukan">
                 <i class="nav-icon icon-pencil"></i> Kedudukan</a>
             </li>
             
@@ -83,7 +83,6 @@
             
           </ul>
         </nav>
-        <button class="sidebar-minimizer brand-minimizer" type="button"></button>
       </div>
       <main class="main">
     <br>

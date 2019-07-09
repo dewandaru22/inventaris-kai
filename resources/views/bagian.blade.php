@@ -18,9 +18,11 @@
     <link href="{{('/assets/node_modules/simple-line-icons/css/simple-line-icons.css')}}" rel="stylesheet">
     <!-- Main styles for this application-->
     <link href="{{('/assets/css/style.css')}}" rel="stylesheet">
+    <link href="{{('/assets/css/glyphicons.css')}}" rel="stylesheet">
     <link href="{{('/assets/vendors/pace-progress/css/pace.min.css')}}" rel="stylesheet">
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
     <script>
       window.dataLayer = window.dataLayer || [];
 
@@ -34,10 +36,6 @@
       gtag('config', 'UA-118965717-5');
     </script>
     
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sistem Pendataan Inventaris</title>
-    
   </head>
   <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
     <header class="app-header navbar">
@@ -46,7 +44,6 @@
       </button>
       <a class="navbar-brand" href="/tabel">
         <img class="navbar-brand-full" src="{{('/assets/img/brand/logoresmi.png')}}" width="150" height="40" alt="KAI Logo" href="/tabel">
-        
       </a>
       <ul class="nav navbar-nav d-md-down-none">
         <li class="nav-item px-5">
@@ -94,71 +91,85 @@
             <!-- /.row-->
               
             <div class="card">
-            <div class="container">
+              <div class="container">
             <div class="card mt-5">
                 <div class="card-header text-center">
                     Data Inventaris
                 </div>
                 <div class="card-body">
-                @foreach($data as $datas)
-            <form action="{{ route('tabel.update', $datas->id) }}" method="post">
-                {{ csrf_field() }}
-                {{ method_field('PUT') }}
-                <div class="form-group">
-                    <label for="nama_barang">Nama Barang:</label>
-                    <input type="text" class="form-control" id="nama_barang" name="nama_barang" value="{{ $datas->nama_barang }}">
-                </div>
-                <div class="form-group">
-                    <label for="no_inventaris">No Inventaris:</label>
-                    <input type="no_inventaris" class="form-control" id="no_inventaris" name="no_inventaris" value="{{ $datas->no_inventaris }}">
-                </div>
-                <div class="form-group">
-                    <label for="jumlah">Jumlah:</label>
-                    <input type="text" class="form-control" id="jumlah" name="jumlah" value="{{ $datas->jumlah }}">
-                </div>
-                <div class="form-group">
-                    <label for="satuan">Satuan:</label>
-                    <input type="text" class="form-control" id="satuan" name="satuan" value="{{ $datas->satuan }}">
-                </div>
-                <div class="form-group">
-                    <label for="harga_barang_item">Harga Barang/Item:</label>
-                    <input type="text" class="form-control" id="harga_barang_item" name="harga_barang_item" value="{{ $datas->harga_barang_item }}">
-                </div>
-                <div class="form-group">
-                    <label for="bagian">Bagian:</label>
-                    <input type="text" class="form-control" id="bagian" name="bagian" value="{{ $datas->bagian }}">
-                </div>
-                <div class="form-group">
-                    <label for="kedudukan">Kedudukan:</label>
-                    <input type="text" class="form-control" id="kedudukan" name="kedudukan" value="{{ $datas->kedudukan }}">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-md btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-md btn-danger">Cancel</button>
-                </div>
-            </form>
-            @endforeach
+                <form action="/bagian" method="POST" role="search">
+                  {{ csrf_field() }}
+                    <div class="input-group">
+                          <input type="text" class="form-control col-sm-3" name="bagian"
+                              placeholder="Cari Bagian"> <span class="input-group-btn">
+                          <span class="input-group-btn">
+                          <button style="margin-left:10px;" type="submit" class="btn btn-success">Cari</button>
+                          </button>
+                        </span>
+                    </div>
+                </form>
+                <br>
+            <table class="table table-bordered small">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Nama Barang</th>
+                        <th>No Inventaris</th>
+                        <th>Jumlah</th>
+                        <th>Satuan</th>
+                        <th>Harga Barang/Item</th>
+                        <th>Bagian</th>
+                        <th>Kedudukan</th>
+                        <th>Pilihan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @php $no = 1; @endphp
+                @foreach($details as $d)
+                    <tr>
+                        <td>{{ $no++ }}</td>
+                        <td>{{ $d->nama_barang }}</td>
+                        <td>{{ $d->no_inventaris }}</td>
+                        <td>{{ $d->jumlah }}</td>
+                        <td>{{ $d->satuan }}</td>
+                        <td>Rp{{ $d->harga_barang_item }}</td>
+                        <td>{{ $d->bagian }}</td>
+                        <td>{{ $d->kedudukan }}</td>
+                        <td>
+                            <form action="{{ route('tabel.destroy', $d->id) }}" method="post">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <a href="{{ route('tabel.edit',$d->id) }}" class=" btn btn-sm btn-primary">
+                                <span class="fa fa-pencil"></span>
+                                </a>
+                                <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">
+                                <span class="fa fa-trash"></span>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
                 </div>
             </div>
             <br>
         </div>
-
-        </div>
+              
+              
+            </div>
       </main>
           
     <!-- CoreUI and necessary plugins-->
-    <script src="{{('/assetsnode_modules/jquery/dist/jquery.min.js')}}"></script>
-    <script src="{{('/assetsnode_modules/popper.js/dist/umd/popper.min.js')}}"></script>
-    <script src="{{('/assetsnode_modules/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-    <script src="{{('/assetsnode_modules/pace-progress/pace.min.js')}}"></script>
-    <script src="{{('/assetsnode_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js')}}"></script>
-    <script src="{{('/assetsnode_modules/@coreui/coreui/dist/js/coreui.min.js')}}"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/pace-progress/pace.min.js"></script>
+    <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+    <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
     <!-- Plugins and scripts required by this view-->
-    <script src="{{('/assetsnode_modules/chart.js/dist/Chart.min.js')}}"></script>
-    <script src="{{('/assetsnode_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js')}}"></script>
+    <script src="node_modules/chart.js/dist/Chart.min.js"></script>
+    <script src="node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
     <script src="{{url('js/main.js')}}"></script>
   </body>
 </html>
-              
-              
-            

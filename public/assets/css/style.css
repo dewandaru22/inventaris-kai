@@ -1,17 +1,5 @@
 @charset "UTF-8";
-/*!
- * CoreUI - Open Source Dashboard UI Kit
- * @version v2.1.12
- * @link https://coreui.io
- * Copyright (c) 2018 creativeLabs Łukasz Holeczek
- * Licensed under MIT (https://coreui.io/license)
- */
-/*!
- * Bootstrap v4.3.1 (https://getbootstrap.com/)
- * Copyright 2011-2019 The Bootstrap Authors
- * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+
 :root {
   --blue: #20a8d8;
   --indigo: #6610f2;
@@ -4101,6 +4089,7 @@ input[type="button"].btn-block {
 
 .nav-tabs .nav-item {
   margin-bottom: -1px;
+  color: #195d9e;
 }
 
 .nav-tabs .nav-link {
@@ -4115,7 +4104,7 @@ input[type="button"].btn-block {
 
 .nav-tabs .nav-link.disabled {
   color: #73818f;
-  background-color: transparent;
+  background-color: #0b377d;
   border-color: transparent;
 }
 
@@ -4175,6 +4164,7 @@ input[type="button"].btn-block {
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  color: #195d9e;
 }
 
 .navbar > .container,
@@ -4216,6 +4206,7 @@ input[type="button"].btn-block {
 .navbar-nav .nav-link {
   padding-right: 0;
   padding-left: 0;
+  color: #195d9e;
 }
 
 .navbar-nav .dropdown-menu {
@@ -12315,7 +12306,7 @@ canvas {
 }
 
 .navbar-nav .nav-link {
-  color: #73818f;
+  color: #195d9e;
 }
 
 .navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
@@ -12551,7 +12542,7 @@ canvas {
 }
 
 .nav-tabs .nav-link {
-  color: #73818f;
+  color: #195d9e;
 }
 
 .nav-tabs .nav-link:hover {
@@ -12817,16 +12808,16 @@ canvas {
 
 .sidebar .nav-link.active {
   color: #fff;
-  background: #ffc107;
+  background: #0b377d;
 }
 
 .sidebar .nav-link.active .nav-icon {
-  color: #ffc107;
+  color: #0b377d;
 }
 
 .sidebar .nav-link:hover {
   color: #fff;
-  background: #20a8d8;
+  background: #f08200;
 }
 
 .sidebar .nav-link:hover .nav-icon {
@@ -12840,7 +12831,7 @@ canvas {
 .sidebar .nav-link.disabled {
   color: #b3b3b3;
   cursor: default;
-  background: transparent;
+  background: #0b377d;
 }
 
 .sidebar .nav-link.disabled .nav-icon {
@@ -13028,7 +13019,7 @@ canvas {
 
 .sidebar .nav-dropdown.open .nav-link.disabled {
   color: #b3b3b3;
-  background: transparent;
+  background: #0b377d;
 }
 
 .sidebar .nav-dropdown.open .nav-link.disabled:hover {
@@ -16394,4 +16385,7 @@ body {
 .was-validated .form-control:invalid, .form-control.is-invalid {
   background-position: right calc(0.375em + 0.1875rem) center;
 }
+
+
+
 /*# sourceMappingURL=style.css.map */

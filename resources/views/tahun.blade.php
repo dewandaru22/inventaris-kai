@@ -11,14 +11,16 @@
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <title>Sistem Pendataan Inventaris</title>
     <!-- Icons-->
-    <link rel="icon" type="image/png" href="{{('assets/img/kai_logo.svg.png')}}" sizes="any" />
-    <link href="{{('assets/node_modules/@coreui/icons/css/coreui-icons.min.css')}}" rel="stylesheet">
-    <link href="{{('assets/node_modules/flag-icon-css/css/flag-icon.min.css')}}" rel="stylesheet">
-    <link href="{{('assets/node_modules/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-    <link href="{{('assets/node_modules/simple-line-icons/css/simple-line-icons.css')}}" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{{('/assets/img/logokai.png')}}" sizes="any" />
+    <link href="{{('/assets/node_modules/@coreui/icons/css/coreui-icons.min.css')}}" rel="stylesheet">
+    <link href="{{('/assets/node_modules/flag-icon-css/css/flag-icon.min.css')}}" rel="stylesheet">
+    <link href="{{('/assets/node_modules/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{('/assets/node_modules/simple-line-icons/css/simple-line-icons.css')}}" rel="stylesheet">
     <!-- Main styles for this application-->
-    <link href="{{('assets/css/style.css')}}" rel="stylesheet">
-    <link href="{{('assets/vendors/pace-progress/css/pace.min.css')}}" rel="stylesheet">
+    <link href="{{('/assets/css/style.css')}}" rel="stylesheet">
+    <link href="{{('/assets/css/glyphicons.css')}}" rel="stylesheet">
+    <link href="{{('/assets/vendors/pace-progress/css/pace.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
     <script>
@@ -40,16 +42,12 @@
       <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="{{('assets/img/brand/kai_logo.svg.png')}}" width="100" height="50" alt="KAI Logo">
-        <img class="navbar-brand-minimized" src="img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo">
+      <a class="navbar-brand" href="/kedudukan">
+        <img class="navbar-brand-full" src="{{('/assets/img/brand/logoresmi.png')}}" width="150" height="40" alt="KAI Logo" href="/kedudukan">
       </a>
-      <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <ul class="nav navbar-nav d-md-down-none">
-        <li class="nav-item px-3">
-          <a class="nav-link" href="#">Sistem Pendataan Inventaris</a>
+        <li class="nav-item px-5">
+          <a class="nav-link" href="/tabel">Sistem Pendataan Inventaris</a>
         </li>
       </ul>
       <ul class="nav navbar-nav ml-auto">
@@ -69,33 +67,15 @@
             </li>
             <li class="nav-title">Data</li>
             <li class="nav-item">
-              <a class="nav-link" href="colors.html">
+              <a class="nav-link" href="/tahun">
                 <i class="nav-icon icon-drop"></i> Tahun</a>
-                <ul class="nav-dropdown-items">
-                <li class="nav-item">
-                  <a class="nav-link" href="base/breadcrumb.html">
-                    <i class="nav-icon icon-puzzle"></i> 2016</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="base/breadcrumb.html">
-                    <i class="nav-icon icon-puzzle"></i> 2017</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="base/breadcrumb.html">
-                    <i class="nav-icon icon-puzzle"></i> 2018</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="base/breadcrumb.html">
-                    <i class="nav-icon icon-puzzle"></i> 2019</a>
-                </li>
-                </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="typography.html">
+              <a class="nav-link" href="/bagian">
                 <i class="nav-icon icon-pencil"></i> Bagian</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="typography.html">
+              <a class="nav-link" href="/kedudukan">
                 <i class="nav-icon icon-pencil"></i> Kedudukan</a>
             </li>
             
@@ -104,78 +84,82 @@
             
           </ul>
         </nav>
-        <button class="sidebar-minimizer brand-minimizer" type="button"></button>
       </div>
       <main class="main">
     <br>
         <div class="container-fluid">
-          <div class="animated fadeIn">
             <!-- /.row-->
+              
             <div class="card">
-              <div class="card-body">
               <div class="container">
             <div class="card mt-5">
                 <div class="card-header text-center">
                     Data Inventaris
                 </div>
                 <div class="card-body">
-                <a class="btn btn-primary" style="color:white;">Tahun</a>
-                <select size="1">
-                  <option>2019
-                  <option>2018
-                  <option>2017
-                  <option>2016
-                </select>
-                <br/>
-                <br/>
-                    <table class="table table-hover">
-                        <tbody>
-                            <tr>
-                                <td>No Inventaris</td>
-                                <td><input type="text" name="fname" style="width:100%;"/></td>
-                            </tr>
-                            <tr>
-                                <td>Nama Barang</td>
-                                <td><input type="text" name="fname" style="width:100%;"/></td>
-                            </tr>
-                            <tr>
-                                <td>Jumlah</td>
-                                <td><input type="text" name="fname" style="width:100%;"/></td>
-                            </tr>
-                            <tr>
-                                <td>Satuan</td>
-                                <td><input type="text" name="fname" style="width:100%;"/></td>
-                            </tr>
-                            <tr>
-                                <td>Harga beli/item</td>
-                                <td><input type="text" name="fname" style="width:100%;"/></td>
-                            </tr>
-                            <tr>
-                                <td>Bagian</td>
-                                <td><input type="text" name="fname" style="width:100%;"/></td>
-                            </tr>
-                            <tr>
-                                <td>Kedudukan</td>
-                                <td><input type="text" name="fname" style="width:100%;"/></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <form action="/tahun" method="POST" role="search">
+                        {{ csrf_field() }}
+                        <div class="input-group">
+                            <input type="text" class="form-control col-sm-3" name="tahun"
+                                placeholder="Cari Kedudukan"> <span class="input-group-btn">
+                                <span class="input-group-btn">
+                                <button style="margin-left:10px;" type="submit" class="btn btn-success">Cari</button>
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+                <br>
+            <table class="table table-bordered small">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Nama Barang</th>
+                        <th>No Inventaris</th>
+                        <th>Jumlah</th>
+                        <th>Satuan</th>
+                        <th>Harga Barang/Item</th>
+                        <th>Bagian</th>
+                        <th>Kedudukan</th>
+                        <th>Pilihan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @php $no = 1; @endphp
+                @foreach($details as $d)
+                    <tr>
+                        <td>{{ $no++ }}</td>
+                        <td>{{ $d->nama_barang }}</td>
+                        <td>{{ $d->no_inventaris }}</td>
+                        <td>{{ $d->jumlah }}</td>
+                        <td>{{ $d->satuan }}</td>
+                        <td>Rp{{ $d->harga_barang_item }}</td>
+                        <td>{{ $d->bagian }}</td>
+                        <td>{{ $d->kedudukan }}</td>
+                        <td>
+                            <form action="{{ route('tahun.destroy', $d->id) }}" method="post">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <a href="{{ route('kedudukan.edit',$d->id) }}" class=" btn btn-sm btn-primary">
+                                <span class="fa fa-pencil"></span>
+                                </a>
+                                <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">
+                                <span class="fa fa-trash"></span>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
                 </div>
             </div>
             <br>
-            <a class="btn btn-danger" style="color:white; float:right;">Batal</a>
-            <a class="btn btn-success" style="color:white; float:right;  margin-right:10px;">Simpan</a>
         </div>
-              </div>
               
-                </div>
-              </div>
+              
             </div>
-            
-          </div>
-        </div>
       </main>
-      
+          
     <!-- CoreUI and necessary plugins-->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>

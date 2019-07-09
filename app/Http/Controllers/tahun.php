@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ModelInventaris;
 
-class kai extends Controller
+class tahun extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class kai extends Controller
     public function index()
     {
         $details = ModelInventaris::all();
-        return view('tabel', compact('details'));
+        return view('tahun', compact('details'));
     }
 
     /**
@@ -68,7 +68,7 @@ class kai extends Controller
     public function edit($id)
     {
         $details = ModelInventaris::where('id',$id)->get();
-       	return view('edit', compact('data'));
+       	return view('edit', compact('details'));
     }
 
     /**
@@ -89,7 +89,7 @@ class kai extends Controller
         $data->bagian = $request->bagian;
         $data->kedudukan = $request->kedudukan;
         $data->save();
-        return redirect()->route('tabel.index')->with('alert-success','Berhasil Mengubah Data!');
+        return redirect()->route('tahun.index')->with('alert-success','Berhasil Mengubah Data!');
     }
 
     /**
