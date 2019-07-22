@@ -105,9 +105,9 @@
                                 <span class="input-group-btn">
                                 <button style="margin-left:10px;" type="submit" class="btn btn-success">Cari</button>
                                 </button>
-                                <span class="input-group-btn">
-                                  <a href="/print" target="_blank" class="btn btn-sm btn-success fa fa-print"></a>
-                                </span>
+                                <a href="/print" class="btn btn-md btn-success" target="_blank">
+                                <span class="fa fa-print"> Print </span>
+                                </a>
                             </span>
                         </div>
                     </form>
@@ -148,7 +148,7 @@
                                 <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">
                                 <span class="fa fa-trash"></span>
                                 </button>
-                                <a href="{{ route('tabel.show',$d->id) }}" class=" btn btn-sm btn-success">
+                                <a target="_blank"href="{{ route('tabel.show',$d->id) }}" class=" btn btn-sm btn-success">
                                 <span class="fa fa-print"></span>
                                 </a>
                             </form>

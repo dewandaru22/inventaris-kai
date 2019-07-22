@@ -19,7 +19,10 @@
                             <img src="{{ public_path('/assets/img/brand/kai_logo.svg.png')}}" width="80" height="40">
                         </th>
                         <th class="col-sm-2 text-center">
-                        <img alt='testing' src="public_path('/barcode.php?codetype=Code128a&size=30&text={{ $datas->no_inventaris }}')"/>
+                        <?php
+                            $data=$datas->no_inventaris;
+                            echo DNS1D::getBarcodeHTML("$data", "C128", 1, 30);
+                        ?>
                         </th>
                     </tr>
                     <tr>
