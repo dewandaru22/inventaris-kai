@@ -100,7 +100,7 @@
                     Data Inventaris
                 </div>
                 <div class="card-body">
-                @foreach($data as $datas)
+                @foreach($details as $datas)
             <form action="{{ route('tabel.update', $datas->id) }}" method="post">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
@@ -133,8 +133,12 @@
                     <input type="text" class="form-control" id="kedudukan" name="kedudukan" value="{{ $datas->kedudukan }}">
                 </div>
                 <div class="form-group">
+                    <label for="tahun">Tahun:</label>
+                    <input type="text" class="form-control" id="tahun" name="tahun" value="{{ $datas->tahun }}">
+                </div>
+                <div class="form-group">
                     <button type="submit" class="btn btn-md btn-primary">Submit</button>
-                    <button type="reset" class="btn btn-md btn-danger">Cancel</button>
+                    <a href="/tabel" class="btn btn-md btn-danger">Cancel</a>
                 </div>
             </form>
             @endforeach
@@ -159,6 +163,3 @@
     <script src="{{url('js/main.js')}}"></script>
   </body>
 </html>
-              
-              
-            

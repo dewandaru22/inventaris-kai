@@ -20,6 +20,9 @@ Route::resource('tabel', 'kai');
 Route::get('/tambah', function () {
     return view('tambah');
 });
+Route::get('/print', function () {
+    return view('print');
+});
 
 Route::resource('kedudukan', 'kedudukan');
 Route::post ( '/kedudukan', function () {
@@ -71,3 +74,6 @@ Route::post ( '/bagian', function () {
 	}
 	return view ( 'kai/error' )->withMessage ( 'No Details found. Try to search again !' );
 } );
+
+Route::get('/print', 'kai@print');
+Route::get('/print_kedudukan', 'kedudukan@print');

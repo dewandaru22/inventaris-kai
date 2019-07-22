@@ -71,11 +71,11 @@
                 <i class="nav-icon icon-drop"></i> Tahun</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="typography.html">
+              <a class="nav-link" href="/bagian">
                 <i class="nav-icon icon-pencil"></i> Bagian</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="typography.html">
+              <a class="nav-link" href="/kedudukan">
                 <i class="nav-icon icon-pencil"></i> Kedudukan</a>
             </li>
             
@@ -94,7 +94,7 @@
               <div class="container">
             <div class="card mt-5">
                 <div class="card-header text-center">
-                    Data Inventaris
+                    Data Inventaris Berdasarkan Kedudukan
                 </div>
                 <div class="card-body">
                 <form action="/kedudukan" method="POST" role="search">
@@ -105,6 +105,9 @@
                                 <span class="input-group-btn">
                                 <button style="margin-left:10px;" type="submit" class="btn btn-success">Cari</button>
                                 </button>
+                                <span class="input-group-btn">
+                                  <a href="/print" target="_blank" class="btn btn-sm btn-success fa fa-print"></a>
+                                </span>
                             </span>
                         </div>
                     </form>
@@ -145,6 +148,9 @@
                                 <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">
                                 <span class="fa fa-trash"></span>
                                 </button>
+                                <a href="{{ route('tabel.show',$d->id) }}" class=" btn btn-sm btn-success">
+                                <span class="fa fa-print"></span>
+                                </a>
                             </form>
                         </td>
                     </tr>

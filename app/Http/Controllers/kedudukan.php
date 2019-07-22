@@ -56,7 +56,15 @@ class kedudukan extends Controller
      */
     public function show($id)
     {
-        
+        $details = ModelInventaris::where('id',$id)->get();
+        $pdf = PDF::setPaper('A4', 'portrait');
+       	return view('print', compact('details'));
+    }
+    
+    public function print()
+    {
+        $details = ModelInventaris::all();
+        return view('print', compact('details'));
     }
 
     /**

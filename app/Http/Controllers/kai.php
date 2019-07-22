@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ModelInventaris;
 
+use PDF;
+
 class kai extends Controller
 {
     /**
@@ -44,6 +46,7 @@ class kai extends Controller
         $data->harga_barang_item = $request->harga_barang_item;
         $data->bagian = $request->bagian;
         $data->kedudukan = $request->kedudukan;
+        $data->tahun = $request->tahun;
         $data->save();
         return redirect()->back()->with('alert-success','Berhasil Menambahkan Data!');
     }
@@ -56,7 +59,17 @@ class kai extends Controller
      */
     public function show($id)
     {
-        
+        set_time_limit(0);
+
+        $details = ModelInventaris::where('id',$id)->get();
+        $pdf = PDF::loadView('print', ['details'=>$details]);
+       	return $pdf->stream();
+    }
+
+    public function print()
+    {
+        $details = ModelInventaris::all();
+        return view('print', compact('details'));
     }
 
     /**
@@ -68,7 +81,7 @@ class kai extends Controller
     public function edit($id)
     {
         $details = ModelInventaris::where('id',$id)->get();
-       	return view('edit', compact('data'));
+       	return view('edit', compact('details'));
     }
 
     /**
@@ -88,6 +101,7 @@ class kai extends Controller
         $data->harga_barang_item = $request->harga_barang_item;
         $data->bagian = $request->bagian;
         $data->kedudukan = $request->kedudukan;
+        $data->tahun = $request->tahun;
         $data->save();
         return redirect()->route('tabel.index')->with('alert-success','Berhasil Mengubah Data!');
     }

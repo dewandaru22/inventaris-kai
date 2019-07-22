@@ -94,7 +94,7 @@
               <div class="container">
             <div class="card mt-5">
                 <div class="card-header text-center">
-                    Data Inventaris
+                    Data Inventaris Berdasarkan Bagian
                 </div>
                 <div class="card-body">
                 <form action="/bagian" method="POST" role="search">
@@ -136,15 +136,18 @@
                         <td>{{ $d->bagian }}</td>
                         <td>{{ $d->kedudukan }}</td>
                         <td>
-                            <form action="{{ route('tabel.destroy', $d->id) }}" method="post">
+                            <form action="{{ route('bagian.destroy', $d->id) }}" method="post">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                                <a href="{{ route('tabel.edit',$d->id) }}" class=" btn btn-sm btn-primary">
+                                <a href="{{ route('bagian.edit',$d->id) }}" class=" btn btn-sm btn-primary">
                                 <span class="fa fa-pencil"></span>
                                 </a>
                                 <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">
                                 <span class="fa fa-trash"></span>
                                 </button>
+                                <a href="{{ route('tabel.show',$d->id) }}" class=" btn btn-sm btn-success">
+                                <span class="fa fa-print"></span>
+                                </a>
                             </form>
                         </td>
                     </tr>

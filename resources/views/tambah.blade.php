@@ -146,6 +146,12 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="tahun" class="col-sm-3 col-form-label">Tahun</label>
+                        <div class="col-sm-9">
+                            <input autocomplete="off" name="tahun" type="text" class="form-control" id="tahun">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <div class="offset-sm-3 col-sm-9">
                             <button type="submit" class="btn btn-success">Simpan</button>
                             <button type="reset" class="btn btn-md btn-danger">Batal</button>

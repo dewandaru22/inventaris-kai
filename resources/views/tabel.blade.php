@@ -96,6 +96,15 @@
                 <div class="card-header text-center">
                     Data Inventaris
                 </div>
+                <!-- <span class="input-group-btn col-sm-3">
+                   <a href="/print" target="_blank" class="btn btn-sm btn-success fa fa-print" style="margin-top:20px; margin-left:5px;">  Cetak </a>
+                </span> -->
+                <div class="form-group col-sm-2" style="margin-top:20px; margin-left:5px; margin-bottom:1px;">
+                    <a href="/print" class="btn btn-md btn-success" target="_blank">
+                    <span class="fa fa-print"> Print </span>
+                    </a>
+                </div>
+
                 <div class="card-body">
                 
             <table class="table table-bordered small">
@@ -134,6 +143,9 @@
                                 <button class="btn btn-sm btn-danger" type="submit" onclick="return confirm('Yakin ingin menghapus data?')">
                                 <span class="fa fa-trash"></span>
                                 </button>
+                                <a target="_blank" href="{{ route('tabel.show',$d->id) }}" class=" btn btn-sm btn-success">
+                                <span class="fa fa-print"></span>
+                                </a>
                             </form>
                         </td>
                     </tr>
