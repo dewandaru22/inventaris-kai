@@ -16386,6 +16386,10 @@ body {
   background-position: right calc(0.375em + 0.1875rem) center;
 }
 
+.lebar{
+  width:60px;
+}
+
 
 
 /*# sourceMappingURL=style.css.map */

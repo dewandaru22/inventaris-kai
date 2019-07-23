@@ -16,6 +16,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('home');
+});
+
 Route::resource('tabel', 'kai');
 Route::get('/tambah', function () {
     return view('tambah');
