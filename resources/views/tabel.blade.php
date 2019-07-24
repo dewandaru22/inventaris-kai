@@ -99,9 +99,12 @@
                 <!-- <span class="input-group-btn col-sm-3">
                    <a href="/print" target="_blank" class="btn btn-sm btn-success fa fa-print" style="margin-top:20px; margin-left:5px;">  Cetak </a>
                 </span> -->
-                <div class="form-group col-sm-2" style="margin-top:20px; margin-left:5px; margin-bottom:1px;">
+                <div class="form-group col-sm-3" style="margin-top:20px; margin-left:5px; margin-bottom:1px;">
                     <a href="/print" class="btn btn-md btn-success" target="_blank">
                     <span class="fa fa-print"> Print </span>
+                    </a>
+                    <a href="/export_excel" class="btn btn-md btn-success" target="_blank">
+                    <span class="fa fa-download"> Download </span>
                     </a>
                 </div>
 

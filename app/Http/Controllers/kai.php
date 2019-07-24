@@ -7,6 +7,10 @@ use App\ModelInventaris;
 
 use PDF;
 
+use App\Exports\InventarisExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
+
 class kai extends Controller
 {
     /**
@@ -71,6 +75,17 @@ class kai extends Controller
         $details = ModelInventaris::all();
         return view('print', compact('details'));
     }
+
+    public function export()
+	{
+		$details = ModelInventaris::all();
+		return view('tabel',['details'=>$details]);
+	}
+
+    public function export_excel()
+	{
+		return Excel::download(new InventarisExport, 'inventaris.xls');
+	}
 
     /**
      * Show the form for editing the specified resource.

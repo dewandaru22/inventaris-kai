@@ -13,7 +13,11 @@ Use App\ModelInventaris;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('/masuk', function () {
+    return view('masuk');
 });
 
 Route::get('/home', function () {
@@ -81,3 +85,9 @@ Route::post ( '/bagian', function () {
 
 Route::get('/print', 'kai@print');
 Route::get('/print_kedudukan', 'kedudukan@print');
+Auth::routes();
+
+Route::get('/index', 'HomeController@index')->name('index');
+
+Route::get('/tabel', 'kai@export');
+Route::get('/export_excel', 'kai@export_excel');
