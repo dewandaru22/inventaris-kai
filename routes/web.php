@@ -13,7 +13,7 @@ Use App\ModelInventaris;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('auth/login');
 });
 
 Route::get('/masuk', function () {
@@ -25,6 +25,7 @@ Route::get('/home', function () {
 });
 
 Route::resource('tabel', 'kai');
+
 Route::get('/tambah', function () {
     return view('tambah');
 });
@@ -33,14 +34,20 @@ Route::get('/print', function () {
 });
 
 Route::resource('kedudukan', 'kedudukan');
-Route::post ( '/kedudukan', function () {
+Route::any ( '/kedudukan', function () {
 	$kedudukan = Input::get ( 'kedudukan' );
     if($kedudukan == ""){
-		$details = ModelInventaris::get();
-        return view ( 'kedudukan', compact('details') );
+        $details = ModelInventaris::orderBy('id', 'desc')->paginate (10)->setPath ( '/kedudukan' );
+		return view ( 'kedudukan', compact('details') );
+		$pagination = $data->appends ( array (
+			'kedudukan' => Input::get ( 'kedudukan' ) 
+		  ) );
     }
     if($kedudukan != ""){
-		$data = ModelInventaris::where ( 'kedudukan', 'LIKE', '%' . $kedudukan . '%' )->get();
+		$data = ModelInventaris::where ( 'kedudukan', 'LIKE', '%' . $kedudukan . '%' )->orderBy('id', 'desc')->paginate (10)->setPath ( '' );
+		$pagination = $data->appends ( array (
+			'kedudukan' => Input::get ( 'kedudukan' ) 
+		  ) );
 		if (count ( $data ) > 0)
 			return view ( 'kedudukan' )->withDetails ( $data )->withQuery ( $kedudukan );
 		else
@@ -50,14 +57,20 @@ Route::post ( '/kedudukan', function () {
 } );
 
 Route::resource('tahun', 'tahun');
-Route::post ( '/tahun', function () {
+Route::any ( '/tahun', function () {
 	$tahun = Input::get ( 'tahun' );
     if($tahun == ""){
-		$details = ModelInventaris::get();
-        return view ( 'tahun', compact('details') );
+		$details = ModelInventaris::orderBy('id', 'desc')->paginate (10)->setPath ( '/tahun' );
+		return view ( 'tahun', compact('details') );
+		$pagination = $data->appends ( array (
+			'tahun' => Input::get ( 'tahun' ) 
+		  ) );
     }
     if($tahun != ""){
-		$data = ModelInventaris::where ( 'tahun', 'LIKE', '%' . $tahun . '%' )->get();
+		$data = ModelInventaris::where ( 'tahun', 'LIKE', '%' .$tahun. '%' )->orderBy('id', 'desc')->paginate (10)->setPath ( '' );
+		$pagination = $data->appends ( array (
+			'tahun' => Input::get ( 'tahun' ) 
+		  ) );
 		if (count ( $data ) > 0)
 			return view ( 'tahun' )->withDetails ( $data )->withQuery ( $tahun );
 		else
@@ -67,16 +80,22 @@ Route::post ( '/tahun', function () {
 } );
 
 Route::resource('bagian', 'bagian');
-Route::post ( '/bagian', function () {
-	$bagian = Input::get ( 'bagian' );
-    if($bagian == ""){
-		$details = ModelInventaris::get();
+Route::any ( '/bagian', function () {
+	$q = Input::get ( 'q' );
+    if($q == ""){
+		$details = ModelInventaris::orderBy('id', 'desc')->paginate (10)->setPath ( '/bagian' );
         return view ( 'bagian', compact('details') );
-    }
-    if($bagian != ""){
-		$data = ModelInventaris::where ( 'bagian', 'LIKE', '%' . $bagian . '%' )->get();
+		$pagination = $data->appends ( array (
+			'q' => Input::get ( 'q' ) 
+		  ) );
+	}
+    if($q != ""){
+		$data = ModelInventaris::where ( 'bagian', 'LIKE', '%' .$q. '%' )->orderBy('id', 'desc')->paginate (10)->setPath ( '' );
+		$pagination = $data->appends ( array (
+			'q' => Input::get ( 'q' ) 
+		  ) );
 		if (count ( $data ) > 0)
-			return view ( 'bagian' )->withDetails ( $data )->withQuery ( $bagian );
+			return view ( 'bagian' )->withDetails ( $data )->withQuery ( $q );
 		else
 			return view ( 'error' )->withMessage ( 'No Details found. Try to search again !' );
 	}
@@ -91,3 +110,4 @@ Route::get('/index', 'HomeController@index')->name('index');
 
 Route::get('/tabel', 'kai@export');
 Route::get('/export_excel', 'kai@export_excel');
+Route::post('/import_excel', 'kai@import_excel');

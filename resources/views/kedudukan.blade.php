@@ -90,7 +90,6 @@
         <div class="container-fluid">
             <!-- /.row-->
               
-            <div class="card">
               <div class="container">
             <div class="card mt-5">
                 <div class="card-header text-center">
@@ -157,7 +156,7 @@
                 @endforeach
                 </tbody>
             </table>
-                </div>
+            {!! $details->render() !!}
             </div>
             <br>
         </div>

@@ -14,7 +14,7 @@ class bagian extends Controller
      */
     public function index()
     {
-        $details = ModelInventaris::all();
+        $details = ModelInventaris::orderBy('id', 'asc')->paginate(10);
         return view('bagian', compact('details'));
     }
 

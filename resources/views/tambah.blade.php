@@ -87,7 +87,6 @@
       <main class="main">
     <br>
         <div class="container-fluid">
-            <div class="card">
               <div class="container">
             <div class="card mt-5">
             @if(Session::has('alert-success'))
@@ -159,7 +158,6 @@
                     </div>
                 </form>
                 </div>
-            </div>
             <br>
         </div>
               
