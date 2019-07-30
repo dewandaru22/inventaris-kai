@@ -153,7 +153,7 @@
                     <div class="form-group row">
                         <div class="offset-sm-3 col-sm-9">
                             <button type="submit" class="btn btn-success">Simpan</button>
-                            <button type="reset" class="btn btn-md btn-danger">Batal</button>
+                            <a href="/tabel" class="btn btn-md btn-danger">Batal</a>
                         </div>
                     </div>
                 </form>

@@ -86,12 +86,12 @@
         </nav>
       </div>
       <main class="main">
-    <br>
+
         <div class="container-fluid">
             <!-- /.row-->
             
               <div class="container">
-            <div class="card mt-5">
+            <div class="card mt-2">
                 <div class="card-header text-center">
                     Data Inventaris Berdasarkan Tahun
                 </div>
@@ -158,7 +158,6 @@
             </table>
             {!! $details->render() !!}
             </div>
-            <br>
         </div>
               
               

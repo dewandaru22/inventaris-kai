@@ -115,13 +115,11 @@
         </nav>
       </div>
       <main class="main">
-    <br>
+
         <div class="container-fluid">
-            <!-- /.row-->
               
-            <div class="card">
               <div class="container">
-            <div class="card mt-5">
+            <div class="card mt-2">
                 <div class="card-header text-center">
                     Data Inventaris
                 </div>
@@ -149,7 +147,7 @@
                     <a href="/export_excel" class="btn btn-md btn-success" target="_blank">
                     <span class="fa fa-download"> Download </span>
                     </a>
-                    <a class="btn btn-md btn-success" target="_blank" data-toggle="modal" data-target="#importExcel">
+                    <a class="btn btn-md btn-success " target="_blank" data-toggle="modal" data-target="#importExcel">
                     <span class="fa fa-upload"> Import </span>
                     </a>
 
@@ -228,9 +226,8 @@
                 @endforeach
                 </tbody>
             </table>
-                </div>
+                
             </div>
-            <br>
         </div>
               
               

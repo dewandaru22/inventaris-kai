@@ -145,7 +145,7 @@ class kai extends Controller
         $data->kedudukan = $request->kedudukan;
         $data->tahun = $request->tahun;
         $data->save();
-        return redirect()->route('tabel.index')->with('alert-success','Berhasil Mengubah Data!');
+        return redirect()->route('bagian.index')->with('alert-success','Berhasil Mengubah Data!');
     }
 
     /**

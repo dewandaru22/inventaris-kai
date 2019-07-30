@@ -137,7 +137,7 @@
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-md btn-primary">Submit</button>
-                    <a href="/tabel" class="btn btn-md btn-danger">Cancel</a>
+                    <a href="javascript:javascript:history.go(-1)" class="btn btn-md btn-danger">Cancel</a>
                 </div>
             </form>
             @endforeach

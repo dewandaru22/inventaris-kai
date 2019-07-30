@@ -81,21 +81,21 @@ Route::any ( '/tahun', function () {
 
 Route::resource('bagian', 'bagian');
 Route::any ( '/bagian', function () {
-	$q = Input::get ( 'q' );
-    if($q == ""){
+	$bagian = Input::get ( 'bagian' );
+    if($bagian == ""){
 		$details = ModelInventaris::orderBy('id', 'desc')->paginate (10)->setPath ( '/bagian' );
         return view ( 'bagian', compact('details') );
 		$pagination = $data->appends ( array (
-			'q' => Input::get ( 'q' ) 
+			'bagian' => Input::get ( 'bagian' ) 
 		  ) );
 	}
-    if($q != ""){
-		$data = ModelInventaris::where ( 'bagian', 'LIKE', '%' .$q. '%' )->orderBy('id', 'desc')->paginate (10)->setPath ( '' );
+    if($bagian != ""){
+		$data = ModelInventaris::where ( 'bagian', 'LIKE', '%' .$bagian. '%' )->orderBy('id', 'desc')->paginate (10)->setPath ( '' );
 		$pagination = $data->appends ( array (
-			'q' => Input::get ( 'q' ) 
+			'bagian' => Input::get ( 'bagian' ) 
 		  ) );
 		if (count ( $data ) > 0)
-			return view ( 'bagian' )->withDetails ( $data )->withQuery ( $q );
+			return view ( 'bagian' )->withDetails ( $data )->withQuery ( $bagian );
 		else
 			return view ( 'error' )->withMessage ( 'No Details found. Try to search again !' );
 	}
