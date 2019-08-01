@@ -102,12 +102,12 @@ Route::any ( '/bagian', function () {
 	return view ( 'kai/error' )->withMessage ( 'No Details found. Try to search again !' );
 } );
 
-Route::get('/print', 'kai@print');
-Route::get('/print_kedudukan', 'kedudukan@print');
+Route::get('/print', 'tahun@print');
+Route::get('/print', 'kedudukan@print');
 Auth::routes();
 
 Route::get('/index', 'HomeController@index')->name('index');
 
-Route::get('/tabel', 'kai@export');
+Route::get('/tabel', 'tahun@export');
 Route::get('/export_excel', 'kai@export_excel');
 Route::post('/import_excel', 'kai@import_excel');

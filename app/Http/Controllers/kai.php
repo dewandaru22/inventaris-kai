@@ -102,16 +102,16 @@ class kai extends Controller
 		$nama_file = rand().$file->getClientOriginalName();
  
 		// upload ke folder file_siswa di dalam folder public
-		$file->move('inventaris',$nama_file);
+		$file->move('imports',$nama_file);
  
 		// import data
-		Excel::import(new InventarisImport, public_path('/inventaris/'.$nama_file));
+		Excel::import(new InventarisImport, public_path('/imports/'.$nama_file));
  
 		// notifikasi dengan session
 		Session::flash('Sukses','Data Inventaris Berhasil Diimport!');
  
 		// alihkan halaman kembali
-		return redirect('/tabel');
+		return redirect('/bagian');
 	}
 
     /**

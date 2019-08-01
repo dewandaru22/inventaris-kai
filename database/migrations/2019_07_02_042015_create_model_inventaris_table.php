@@ -22,6 +22,7 @@ class CreateModelInventarisTable extends Migration
             $table->text('harga_barang_item');
             $table->text('bagian');
             $table->text('kedudukan');
+            $table->text('tahun');
             $table->timestamps();
         });
     }

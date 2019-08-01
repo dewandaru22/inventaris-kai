@@ -58,7 +58,7 @@ class tahun extends Controller
     {
         $details = ModelInventaris::where('id',$id)->get();
         $pdf = PDF::setPaper('A4', 'portrait');
-       	return view('print', compact('details'));
+        return $pdf->stream();
     }
     
     public function print()
@@ -66,6 +66,43 @@ class tahun extends Controller
         $details = ModelInventaris::all();
         return view('print', compact('details'));
     }
+
+    public function export()
+	{
+		$details = ModelInventaris::all();
+		return view('tabel',['details'=>$details]);
+	}
+
+    public function export_excel()
+	{
+		return Excel::download(new InventarisExport, 'inventaris.xls');
+    }
+    
+    public function import_excel(Request $request) 
+	{
+		// validasi
+		$this->validate($request, [
+			'file' => 'required|mimes:csv,xls,xlsx'
+		]);
+ 
+		// menangkap file excel
+		$file = $request->file('file');
+ 
+		// membuat nama file unik
+		$nama_file = rand().$file->getClientOriginalName();
+ 
+		// upload ke folder file_siswa di dalam folder public
+		$file->move('inventaris',$nama_file);
+ 
+		// import data
+		Excel::import(new InventarisImport, public_path('/inventaris/'.$nama_file));
+ 
+		// notifikasi dengan session
+		Session::flash('Sukses','Data Inventaris Berhasil Diimport!');
+ 
+		// alihkan halaman kembali
+		return redirect('/tabel');
+	}
 
     /**
      * Show the form for editing the specified resource.

@@ -15,8 +15,8 @@ class InventarisImport implements ToModel
     public function model(array $row)
     {
         return new ModelInventaris([
-            'nama_barang' => $row[1],
-            'no_inventaris' => $row[2],
+            'no_inventaris' => $row[1],
+            'nama_barang' => $row[2],
             'jumlah' => $row[3],
             'satuan' => $row[4],
             'harga_barang_item' => $row[5],
